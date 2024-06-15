@@ -1,10 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
-// ...
+import { alphaVantageApi } from '@/entities/alpha-vantage';
+import { setupListeners } from '@reduxjs/toolkit/query';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    [alphaVantageApi.reducerPath]: alphaVantageApi.reducer,
+  },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(alphaVantageApi.middleware),
 });
+
+setupListeners(store.dispatch);
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
