@@ -1,11 +1,3 @@
-export * from './components/main-nav.tsx';
-export * from './components/user-nav.tsx';
-export * from './components/search.tsx';
-export * from './components/team-switcher.tsx';
-export * from './components/overview.tsx';
-export * from './components/recent-sales.tsx';
-export * from './components/date-range-picker.tsx';
-
 export * from './components/ui/button.tsx';
 export * from './components/ui/avatar.tsx';
 export * from './components/ui/calendar.tsx';
@@ -18,3 +10,6 @@ export * from './components/ui/popover.tsx';
 export * from './components/ui/select.tsx';
 export * from './components/ui/card.tsx';
 export * from './components/ui/tabs.tsx';
+export * from './components/ui/checkbox.tsx';
+export * from './components/ui/form.tsx';
+export * from './components/ui/skeleton.tsx';

@@ -1,5 +1,5 @@
+// @todo: placeholder slice, if needed, currently rtk covers all use cases
 import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
 
 export interface AlphaVantageState {
   value: number;
@@ -12,20 +12,7 @@ const initialState: AlphaVantageState = {
 export const alphaVantageSlice = createSlice({
   name: 'alphaVantage',
   initialState,
-  reducers: {
-    increment: state => {
-      state.value += 1;
-    },
-    decrement: state => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
-    },
-  },
+  reducers: {},
 });
-
-export const { increment, decrement, incrementByAmount } =
-  alphaVantageSlice.actions;
 
 export default alphaVantageSlice.reducer;

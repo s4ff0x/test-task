@@ -5,8 +5,10 @@ import {
   AggregatedAVCoreStockParams,
   StockData,
   AVParamsCoreStockSymbol,
+  AVParamsCrypto,
 } from '@/shared/api';
 import { functionMap, generateQueryString } from '../lib.ts';
+import { CurrencyExchangeData } from '../types.ts';
 
 export const alphaVantageApi = createApi({
   reducerPath: 'alphaVantageApi',
@@ -21,8 +23,21 @@ export const alphaVantageApi = createApi({
         queryParams.apikey = API_KEY;
         return `query?${generateQueryString(queryParams)}`;
       },
+      transformResponse(baseQueryReturnValue: StockData) {
+        const data = baseQueryReturnValue;
+        data['Time Series'] = Object.values(data)[1];
+        return data;
+      },
     }),
-    getAVDataCoreStockSymbol: builder.query<StockData, AVParamsCoreStockSymbol>(
+    getAVDataCrypto: builder.query<CurrencyExchangeData, AVParamsCrypto>({
+      query: params => {
+        const queryParams = { ...params };
+        queryParams.apikey = API_KEY;
+        queryParams.function = functionMap.CURRENCY_EXCHANGE_RATE;
+        return `query?${generateQueryString(queryParams)}`;
+      },
+    }),
+    getAVDataCoreStockSymbol: builder.query<StockData, AVParamsCoreStockSymbol>( // WIP
       {
         query: params => {
           const queryParams = { ...params };
@@ -35,7 +50,5 @@ export const alphaVantageApi = createApi({
   }),
 });
 
-export const {
-  useGetAVDataCoreStockQuoteQuery,
-  useGetAVDataCoreStockSymbolQuery,
-} = alphaVantageApi;
+export const { useGetAVDataCoreStockQuoteQuery, useGetAVDataCryptoQuery } =
+  alphaVantageApi;
