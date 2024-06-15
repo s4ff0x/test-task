@@ -1,5 +1,6 @@
 .helm
 build
+dist
 public
 reports
 coverage
