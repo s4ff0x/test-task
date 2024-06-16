@@ -1,4 +1,4 @@
-// @todo: placeholder slice, if needed, currently rtk covers all use cases
+// TODO: placeholder slice, if needed, currently rtk covers all use cases
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface AlphaVantageState {

@@ -3,7 +3,7 @@
 ## How to run
 `pnpm i && pnpm dev`
 
-also available here - 
+also available here - https://666ec36f30c660c2f26b38ce--startling-biscuit-728c55.netlify.app/
 
 ## Stack (and reasons)
 - UI framework: React (one of 3 industry standards, less opinionated, more flexible, great community, good support, fast)
@@ -27,6 +27,8 @@ also available here -
 - Component dependency visualization: to manage architecture (we can see that every layer has alpha-vantage folder, this helps to keep FSD structure extensible for new big business entities) ![img.png](img.png)
 - Path aliases: to make imports more readable and maintainable
 - Environment variables: to keep secrets out of codebase
+- Lazy loading of components
+- Error boundary
 
 ## What should be done when have time
 
@@ -36,5 +38,4 @@ also available here -
 - proper ci pipeline (units, e2e, linting, type checking, formatting) and automatic deploys to dev and prod environments 
 - Form refactoring (currently we have a bit of duplication in form components, we should refactor it)
 - Check Todos in the code
-- Proper error handling with sentry and error boundaries
-- Lazy loading of components
+- Proper error handling with sentry and error boundaries with custom fallback components

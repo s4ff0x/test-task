@@ -12,7 +12,6 @@ import {
 export const alphaVantageApi = createApi({
   reducerPath: 'alphaVantageApi',
 
-  // TODO: replace baseUrl with env var, currently like this because of deploy to netlify
   baseQuery: fetchBaseQuery({ baseUrl: BACKEND_HOST }),
   endpoints: builder => ({
     getAVDataCoreStockQuote: builder.query<
@@ -38,7 +37,7 @@ export const alphaVantageApi = createApi({
         return `query?${generateQueryString(queryParams)}`;
       },
     }),
-    getAVDataCoreStockSymbol: builder.query<StockData, AVParamsCoreStockSymbol>( // WIP
+    getAVDataCoreStockSymbol: builder.query<StockData, AVParamsCoreStockSymbol>( // TODO: not implemented as part of test task because this endpoint is premium
       {
         query: params => {
           const queryParams = { ...params };

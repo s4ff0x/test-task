@@ -1,6 +1,13 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui';
-import { useState } from 'react';
-import { CoreStockWidget, CryptoWidget } from '@/widgets/alpha-vantage';
+import { lazy, useState } from 'react';
+
+// lazy loading of components
+const CoreStockWidget = lazy(
+  () => import('@/widgets/alpha-vantage/core-stock-widget')
+);
+const CryptoWidget = lazy(
+  () => import('@/widgets/alpha-vantage/crypto-widget')
+);
 
 type Tab = 'coreStock' | 'crypto';
 
@@ -16,11 +23,13 @@ export default function DashboardPage() {
           <Tabs
             value={tab}
             className="space-y-4"
-            onValueChange={tab => setTab(tab as Tab)}>
+            onValueChange={tab => setTab(tab as Tab)}
+          >
             <TabsList>
               <TabsTrigger value="coreStock">Core Stock</TabsTrigger>
               <TabsTrigger value="crypto">Cryptocurrencies</TabsTrigger>
             </TabsList>
+
             <TabsContent value="coreStock" className="space-y-4">
               <CoreStockWidget />
             </TabsContent>

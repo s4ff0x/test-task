@@ -13,7 +13,7 @@ import {
   CryptoParamForm,
 } from '@/features/alpha-vantage/crypto-param-form';
 
-export const CryptoWidget = () => {
+const CryptoWidget = () => {
   const [params, setParams] = useState<CryptoFormData>({
     from_currency: '',
     to_currency: '',
@@ -64,3 +64,4 @@ export const CryptoWidget = () => {
     </div>
   );
 };
+export default CryptoWidget;

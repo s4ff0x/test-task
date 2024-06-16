@@ -24,7 +24,7 @@ export const functionMap = {
   CURRENCY_EXCHANGE_RATE: 'CURRENCY_EXCHANGE_RATE',
 };
 
-// @todo: in real app fetch symbols and other values from api
+// TODO: in real app fetch symbols and other values from api
 export const symbols = [
   'JBLU',
   'JBND',

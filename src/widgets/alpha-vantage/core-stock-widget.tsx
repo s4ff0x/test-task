@@ -13,7 +13,7 @@ import {
   FormData,
 } from '@/features/alpha-vantage/core-stock-param-form';
 
-export const CoreStockWidget = () => {
+const CoreStockWidget = () => {
   const [params, setParams] = useState<FormData>({
     symbol: '',
     interval: '',
@@ -59,3 +59,4 @@ export const CoreStockWidget = () => {
     </div>
   );
 };
+export default CoreStockWidget;
