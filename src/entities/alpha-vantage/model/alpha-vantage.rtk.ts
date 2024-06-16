@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { BACKEND_HOST, API_KEY } from '@/shared/api';
+import { API_KEY, BACKEND_HOST } from '@/shared/api';
 import { functionMap, generateQueryString } from '../lib.ts';
 import {
   CurrencyExchangeData,
@@ -11,6 +11,8 @@ import {
 
 export const alphaVantageApi = createApi({
   reducerPath: 'alphaVantageApi',
+
+  // TODO: replace baseUrl with env var, currently like this because of deploy to netlify
   baseQuery: fetchBaseQuery({ baseUrl: BACKEND_HOST }),
   endpoints: builder => ({
     getAVDataCoreStockQuote: builder.query<
