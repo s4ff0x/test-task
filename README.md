@@ -40,3 +40,5 @@ also available here - https://666ec36f30c660c2f26b38ce--startling-biscuit-728c55
 - Check Todos in the code
 - Proper error handling with sentry and error boundaries with custom fallback components
 - Refactor alpha-vantage widgets, seems like they have similar logic, so maybe extract it to custom hook
+- Automatic type generation for api endpoints (and follow schema-first approach for types, so not track it in git)
+- Wait until react compiler will be at production level and then refactor to use it
