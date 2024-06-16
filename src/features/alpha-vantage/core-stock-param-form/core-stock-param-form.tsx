@@ -20,7 +20,7 @@ import { functions, intervals, symbols } from '@/entities/alpha-vantage';
 
 const FormSchema = z.object({
   symbol: z.string().min(1, {
-    message: 'Symbol must be a string',
+    message: 'Symbol must be selected.',
   }),
   function: z.string().min(1, {
     message: 'Function must be selected.',

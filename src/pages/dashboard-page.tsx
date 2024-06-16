@@ -1,7 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui';
 import { useState } from 'react';
-import { CoreStockWidget } from '@/widgets/alpha-vantage/core-stock-widget.tsx';
-import { CryptoWidget } from '@/widgets/alpha-vantage/crypto-widget.tsx';
+import { CoreStockWidget, CryptoWidget } from '@/widgets/alpha-vantage';
 
 type Tab = 'coreStock' | 'crypto';
 

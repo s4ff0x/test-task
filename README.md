@@ -1,30 +1,31 @@
-# React + TypeScript + Vite
+# Test task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Stack (and reasons)
+- UI framework: React (one of 3 industry standards, less opinionated, more flexible, great community, good support, fast)
+- State management: RTK + Query (analog of React query which is provided by redux under the hood, so we don't need to mix technologies)
+- Forms: React Hook Form (analog of Formik, natively supported by our ui framework - shadcn ui)
+- Charts: react-chartjs-2 (analog of recharts, was selected as matter of experience)
+- Build tool: Vite (faster and more simple than webpack, perfect for small projects, has some limitations on scale, for example support for module federation is not good (plugin vite module federation seems abandoned by maintainers) so can be bad for big projects)
+- Formatter: Prettier (industry standard, good note that we should use it without eslint, because eslint is much slower as a formatter, so eslint only for linting)
+- Linting: ESLint, commitlint
+- Type checking: TypeScript
+- Architecture visualization: dependency-cruiser
+- UI library: Tailwind CSS + Shadcn UI
+- Package manager: pnpm (better back compatibility, faster installs, benchmarks - https://pnpm.io/benchmarks)
 
-Currently, two official plugins are available:
+## Good practices which are used in this project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Architecture methodology: Feature Sliced Design https://feature-sliced.design/ (Help us to keep codebase scalable and maintainable)
+- Client side caching with RTK Query: to reduce number of requests to backend
+- Pre commit hooks: to keep codebase consistent and git history clean
+- Linter for commits: to keep same convention in repo (git conventional commits)
+- Component dependency visualization: to manage architecture (we can see that every layer has alpha-vantage folder, this helps to keep FSD structure extensible for new big business entities) ![img.png](img.png)
+- Path aliases: to make imports more readable and maintainable
+- Environment variables: to keep secrets out of codebase
 
-## Expanding the ESLint configuration
+## What should be done more
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Add unit tests (good oop model for testing which allows not to hardcode selectors)
+- e2e with playwright or cypress (cover main user scenarios)
+- proper ci pipeline (units, e2e, linting, type checking, formatting) and automatic deploys to dev and prod environments 
+- Form refactoring (currently we have a bit of duplication in form components, we should refactor it)

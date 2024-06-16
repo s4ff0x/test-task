@@ -1,14 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { BACKEND_HOST, API_KEY } from '@/shared/api';
+import { functionMap, generateQueryString } from '../lib.ts';
 import {
-  BACKEND_HOST,
-  API_KEY,
+  CurrencyExchangeData,
   AggregatedAVCoreStockParams,
   StockData,
   AVParamsCoreStockSymbol,
   AVParamsCrypto,
-} from '@/shared/api';
-import { functionMap, generateQueryString } from '../lib.ts';
-import { CurrencyExchangeData } from '../types.ts';
+} from '../types.ts';
 
 export const alphaVantageApi = createApi({
   reducerPath: 'alphaVantageApi',

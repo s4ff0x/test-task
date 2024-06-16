@@ -20,10 +20,10 @@ import { cryptoCurrencies } from '@/entities/alpha-vantage';
 
 const FormSchema = z.object({
   from_currency: z.string().min(1, {
-    message: 'From currency must be a string',
+    message: 'From currency must be selected.',
   }),
   to_currency: z.string().min(1, {
-    message: 'To currency must be a string',
+    message: 'To currency must be selected.',
   }),
 });
 
