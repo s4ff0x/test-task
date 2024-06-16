@@ -39,3 +39,4 @@ also available here - https://666ec36f30c660c2f26b38ce--startling-biscuit-728c55
 - Form refactoring (currently we have a bit of duplication in form components, we should refactor it)
 - Check Todos in the code
 - Proper error handling with sentry and error boundaries with custom fallback components
+- Refactor alpha-vantage widgets, seems like they have similar logic, so maybe extract it to custom hook
