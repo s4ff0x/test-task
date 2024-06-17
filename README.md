@@ -33,6 +33,7 @@ also available here - https://666ec36f30c660c2f26b38ce--startling-biscuit-728c55
 ## What should be done when have time
 
 - [!] Replace .env.development with .evn and don't track it in git
+- Add memoization if needed (react.memo, useMemo, useCallback)
 - Add unit tests (good oop model for testing which allows not to hardcode selectors)
 - e2e with playwright or cypress (cover main user scenarios)
 - proper ci pipeline (units, e2e, linting, type checking, formatting) and automatic deploys to dev and prod environments 
