@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui';
-import { lazy, useState } from 'react';
+import { Suspense, lazy, useState } from 'react';
 
 // lazy loading of components
 const CoreStockWidget = lazy(
@@ -31,10 +31,14 @@ export default function DashboardPage() {
             </TabsList>
 
             <TabsContent value="coreStock" className="space-y-4">
-              <CoreStockWidget />
+              <Suspense fallback={<div>loading...</div>}>
+                <CoreStockWidget />
+              </Suspense>
             </TabsContent>
             <TabsContent value="crypto" className="space-y-4">
-              <CryptoWidget />
+              <Suspense fallback={<div>loading...</div>}>
+                <CryptoWidget />
+              </Suspense>
             </TabsContent>
           </Tabs>
         </div>
